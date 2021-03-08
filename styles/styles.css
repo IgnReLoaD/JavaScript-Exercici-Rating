@@ -1,0 +1,39 @@
+#container{
+    border-color: rgb(179, 207, 16);
+    border-style: solid;
+}
+
+#stars{
+    border-color: rgb(212, 6, 6);
+    border-style: solid;
+}
+
+.valoracion label {
+    background-color: initial;
+    border: 0;
+    color: #5f5050;
+    transition: 1s all;
+}
+
+.valoracion label:hover {
+    cursor: pointer;
+    color: #54c25e;
+}
+label:nth-child(1):hover ~ label {
+    color: #15aedd;
+}
+
+/* AQUEST FUNCIONA OK */
+label:nth-child(2):hover ~ label {
+    color: #ec471e;
+}
+
+label:nth-child(3):hover ~ label {
+    color: #ffa400;
+}
+label:nth-child(4):hover ~ label {
+    color: #ffa400;
+}
+label:nth-child(5):hover ~ label {
+    color: #ffa400;
+}

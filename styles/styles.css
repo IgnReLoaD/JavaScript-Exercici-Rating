@@ -13,7 +13,6 @@ h3 {
   font-weight: bold;
 }
 
-/* ---- exemple ------ */
 section div {
   display: flex;
   justify-content: center;
@@ -21,9 +20,10 @@ section div {
   font-size: 100%;
 }
 
+/* intentem que augmenti tamany estel en hover */
 .fa.fa-heart:hover {
   cursor: pointer;
-  transform: scale(1.5);
+  transform: scale(1.5rem,1.5rem);
 }
 
 /* identificar icona de Cor o de Estrella marcada */

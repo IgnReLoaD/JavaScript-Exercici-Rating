@@ -26,6 +26,7 @@
 //
 //     Finalment em FUNCIONA OK aquesta versió, però buscant molt per internet, i trobar
 //     funcions noves com el dispatchEvent, que genera un Event Click totalment nou.
+//
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // botó per Reset i despintar tots els estels
 let boto = document.querySelector("#esborrar");
 boto.addEventListener("click", esborrar);
-
+  
 // funció per esborrar totes les estrelles
 function esborrar() {
     let arrEstrelles = document.querySelectorAll(".star");
@@ -60,15 +61,17 @@ function esborrar() {
 
 // marca la NOVA puntuació que li acabem de donar ARA mateix
 function myRating(item) {
-    let span = item.currentTarget;
+    let span  = item.currentTarget;
     let stars = document.querySelectorAll(".star");
 
     // convert Nodelist to an array -- no entenc perquè hem de passar de Lista a Array
     let arrEstrelles = Array.from(stars);
+
     // girem l'Array perque vagi de major a menor (per coincidir amb el CSS)
-    arrEstrelles = arrEstrelles.reverse();
+    arrEstrelles   = arrEstrelles.reverse();
     let coincideix = false;
     let puntuacion = 0;
+
     // recorrem cada element del Array per pintar cada estel segons puntuat o no
     arrEstrelles.forEach(function (item, index) {
         // if ternari... si no estava puntuat i cal, doncs el pinta
@@ -78,6 +81,7 @@ function myRating(item) {
           coincideix = true;
           puntuacion = index + 1;
         }
-      });
+      }); 
+      
     document.querySelector(".stars").setAttribute("data-rating", puntuacion);
 }

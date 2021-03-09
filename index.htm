@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
     <!-- ENUNCIAT:    
 
     NIVELL-1: Creació d'un sistema de Rating utilitzant JavaScript + CSS
@@ -47,94 +47,88 @@
 </head>
 
 <body>
-    <h1>IT Academy - exercici extra (Rating amb JS i CSS)</h1>
-    <p>Nivell 1: rating amb 5 estrelles (alineació bootstrap, icones FontAwesome)</p>    
+    <h1 class="bg-danger color-dark fixed-top">IT Academy - Rating JS-CSS</h1>
     <br>
-    <br>    
+    <br>
+    <!-- <p>Nivell 1, 2 i 3: rating amb 5 estrelles (alineació bootstrap, icones FontAwesome)</p>        -->
 <!-- __________________________________________________________________________  -->
     
 <!--
-    EXEMPLE CALCULADORA ESTRUCTURA
+    EXEMPLE CALCULADORA ESTRUCTURA per treballar amb Bootstrap
     <div class="container">
         <outputs class="row">            
             <outputSc id="screen" class="col bg-screen">&nbsp; </outputSc>
         </outputs>
         <inputs class="row">            
             <inputBtn id="btn-clr" class="col-3 btn bg-clrscr"> C </inputBtn>
-            <inputBtn id="btn-dec" class="col-3 btn bg-button">, </inputBtn>
             <inputBtn id="btn-exe" class="col-6 btn bg-accept">= </inputBtn>
         </inputs>
     </div>
+
+    EXEMPLE TROS CODI QUE NO EM FUNCIONA (amagar/mostrar la estrella plena/buida)
+        <caption>
+            <h3>Leo Messi</h3>
+            La teva puntuació...
+            <stars class="puntuacio">
+                <button>
+                    <i class="far fa-star buida"></i>
+                    <i class="fas fa-star plena"></i>
+                </button>
+                <button>
+                    <i class="far fa-star buida"></i>
+                    <i class="fas fa-star plena"></i>
+                </button>
+                <button>
+                    <i class="far fa-star buida"></i>
+                    <i class="fas fa-star plena"></i>
+                </button>
+                <button>
+                    <i class="far fa-star buida"></i>
+                    <i class="fas fa-star plena"></i>
+                </button>
+                <button>
+                    <i class="far fa-star buida"></i>
+                    <i class="fas fa-star plena"></i>
+                </button>
+            </stars>                                                                              
+        </caption>
 -->
-    
-    <rating id="container" class="container-fluid justify-content-center w-100">    
-        <!-- Notas de Bootstrap... 
-            Ancho width:    w-25 / w-50 / w-75 / w-100
-            Horitzontal:    justify-content-around / justify-content-between
-            Vertical:       align-items-start / align-items-center / align-items-end      
-            Text interior:  align-self-start / align-self-center / align-self-end    -->
+    <section class="container justify-content-center pl-25 ml-25">
+        <figure class="col align-self-center card w-75 ml-25 justify-content-center">
+            <div class="card-header bg-secondary">
+                <h3>DAVANTER CENTRE</h3>
+            </div>
+            <img src="./assets/leo-messi.jpg" alt="Messi">
+            <figcaption class="card-body bg-secondary">
+                <caption>
+                    <h3>Leo Messi</h3>
+                    La teva puntuació...
+                    <stars class="puntuacio">
+                        <section class=" row stars ml-2 mr-5 mb-5 " data-rating="5">
+                            <div class="col mr-1 align-self-center">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                        </section>                        
+                    </stars>                                                                              
+                </caption>
+                <details class="card-footer bg-success">
+                    Ha jugat com fals 9 ajudant en la pressió, obrint a bandes.                    
+                </details>
+            </figcaption>
+        </figure>
+    </section>   
+    <!-- boto per esborrar puntuació, pq no aconsegueixo AddEventListener diferent de .star -->
+    <section class="row mb-5 pb-5 justify-content-center">
+        <div class="col-4 text-center">
+          <input class="btn btn-warning" id="esborrar" type="reset" value="Esborrar puntuació">
+        </div>
+    </section>
 
-        <fila-1 class="row justify-content-around bg-warning">               
-
-            <!-- ESTRELLA - 0  -->            
-            
-            <star class="col-2 bg-primary">
-                <label class="star" for="rating0">ESTRELLA - 0
-                <input id="rating0" type="radio" value="0" name="rating" checked />
-            </star>
-        </fila-1>
-
-
-
-        <stars id="stars" class="row justify-content-around bg-success">               
-            
-            <!-- ESTRELLA - 1  -->
-            <star class="col-2 bg-secondary">                
-                <label class="star " for="rating1">Star1
-                    <i class="fas fa-star"></i> 
-                </label>
-                <input id="rating1" type="radio" value="1" name="rating" />            
-            </star>
-
-            <!-- ESTRELLA - 2  -->
-            <star class="col-2">
-                <label class="star" for=rating2>Star2
-                    <i class="fas fa-star"></i> 
-                </label>
-                <input id=rating2 type=radio value=2 name=rating />
-            </star>
-
-            <!-- ESTRELLA - 3  -->
-            <star class="col-2">            
-                <label class="star" for=rating3>Star3
-                    <i class="fas fa-star"></i>
-                </label>
-                <input id=rating3 type=radio value=3 name=rating />
-            </star>
-
-            <!-- ESTRELLA - 4  -->
-            <star class="col-2">            
-                <label class="star" for=rating4>Star4
-                    <i class="fas fa-star"></i>                
-                </label>
-                <input id=rating4 type=radio value=4 name=rating />
-            </star>
-            
-            <!-- ESTRELLA - 5  -->
-            <star class="col-2">            
-                <label class="star" for=rating5>Star5
-                    <i class="fas fa-star"></i>
-                </label>
-                <input id=rating5 type=radio value=5 name=rating />
-            </star>
-        </stars>
-
-        <!-- sense qualificar -->
-        <label class=reset for=rating0>reset</label>
-        <div id=texto>sin calificar</div>
-        
-    </rating>
-    <!-- ________________________________ SCRIPTS bootstrap i propi _______________________________________________________ -->
+    <!-- _____________________ SCRIPTS bootstrap i propi ___________________________________ -->
 
     <!-- enllaços CDN (online):  jQuery, popper, bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -150,6 +144,5 @@
     <script src="scripts/main.js" type="text/javascript"></script>
     <!-- referencia al fitxer JS - recomanable definir al final just abans del body 
     perquè sino no coneix encara el HTML i no sap on trobar les ubicacions dins la pagina -->
-
     
 </body>

@@ -1,39 +1,214 @@
-#container{
-    border-color: rgb(179, 207, 16);
-    border-style: solid;
+body {
+  background-color: darkgreen;
 }
 
-#stars{
-    border-color: rgb(212, 6, 6);
-    border-style: solid;
+h1 {
+  text-align: center;
+  border-bottom: gray;
+  border-style: solid;
 }
 
-.valoracion label {
-    background-color: initial;
-    border: 0;
-    color: #5f5050;
-    transition: 1s all;
+h3 {
+  color: black;
+  font-weight: bold;
 }
 
-.valoracion label:hover {
-    cursor: pointer;
-    color: #54c25e;
-}
-label:nth-child(1):hover ~ label {
-    color: #15aedd;
-}
-
-/* AQUEST FUNCIONA OK */
-label:nth-child(2):hover ~ label {
-    color: #ec471e;
+/* ---- exemple ------ */
+section div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
 }
 
-label:nth-child(3):hover ~ label {
-    color: #ffa400;
+.fa.fa-heart:hover {
+  cursor: pointer;
+  transform: scale(1.5);
 }
-label:nth-child(4):hover ~ label {
-    color: #ffa400;
+
+/* identificar icona de Cor o de Estrella marcada */
+.fa.fa-heart.checked {
+  color: #c8ff00;
 }
-label:nth-child(5):hover ~ label {
-    color: #ffa400;
+
+/* tamany estels 1.2 perquè es vegi en app mòbil */
+.star {
+  color: goldenrod;
+  font-size: 1.2rem;
+  padding: 0 1rem;
 }
+
+.star::before {
+  content: "\2606";
+  cursor: pointer;
+}
+
+/* efecte Hover abans de fer Click */
+.star:hover::before {
+  content: "\2605";
+  color: goldenrod;
+  /* a vegades 'transform' augmenta tamany, a vegades no... no entenc pq */
+  transform: scale(1.5rem, 1.5rem);
+}
+
+/* intentar que el text de la puntuacio no quedi fora de pantalla */
+body > section > figure > figcaption > stars > section > div::after{
+    margin: 5,5,5,5;
+}
+
+.star.rated::before {
+  content: "\2605";
+}
+
+/* puntuacio inicial a zero  */
+.stars {
+  counter-reset: rateme 0;
+  font-size: 2rem;
+  font-weight: bolder;
+  align-self: center;
+}
+
+/* puntuacio afegir  */
+.star.rated {
+  counter-increment: rateme 1;
+}
+
+/* text comptador ratio, que es mostra després del click */
+.stars::after {
+  content: counter(rateme) "/5punts";
+  font-size: small;
+  margin-left: 5px;
+}
+
+.stars {
+  unicode-bidi: normal;
+  direction: rtl;
+}
+
+.stars .star:hover::before,
+.stars .star:hover ~ .star::before {
+  content: "\2605";
+  transform: scale(1.5);
+}
+
+/* ------------------ FI utilitzant SPANS -------------------------- */
+
+
+/* ---- INICI utilitzant RadioButtons i Buttons, NO FUNCIONA comentat ------ */
+
+/* .stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+}
+
+.attribution:hover {
+  color: #1fa67a;
+}
+
+.checked {
+  color: hotpink;
+} */
+
+/* RadioButtons amagats, però els seus Labels tindràn forma d'estrella */
+/*
+input[name="rating"] {
+  display: none;
+}  */
+
+/* estrellas inmediatamente despues de un radiobutton van amarillas */
+
+/* input[type=radio]+label.star svg path {
+  fill: #fe0
+} */
+
+/* input[type="radio"] + label.star {
+  fill: #fe0;
+}
+
+/* estrelles de més puntuació que la marcada (de la dreta) buides */
+
+/* input[type=radio]:checked~label.star svg path {
+  fill: #fff;
+} */
+
+/* input[type="radio"]:checked ~ label.star {
+  fill: #fff;
+}
+
+.puntuacio button.empty {
+  visibility: hidden;
+}
+
+.puntuacio {
+  display: flex;
+  flex-direction: row-reverse;
+  /* justify-content: space-evenly; 
+  justify-content: center;
+}
+
+.puntuacio button {
+  background-color: initial;
+  border: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: blue;
+  transition: 0.5s all;
+}
+
+.puntuacio button:hover {
+  cursor: pointer;
+  color: goldenrod;
+  transform: scale(1.5);
+}
+
+button:nth-child(1):hover ~ button {
+  color: goldenrod;
+}
+
+button:nth-child(2):hover ~ button {
+  color: goldenrod;
+}
+
+button:nth-child(3):hover ~ button {
+  color: goldenrod;
+}
+
+button:nth-child(4):hover ~ button {
+  color: goldenrod;
+}
+
+button:nth-child(5):hover ~ button {
+  color: goldenrod;
+} 
+
+*/
